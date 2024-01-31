@@ -2,8 +2,12 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/routing/routes.dart';
 import 'package:em_school/core/theming/colors.dart';
 import 'package:em_school/core/theming/styles.dart';
+import 'package:em_school/core/utlis/api_constatns.dart';
+import 'package:em_school/core/utlis/session_manager.dart';
+import 'package:em_school/core/widgets/custom_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,6 +60,93 @@ pushPageReplace(context, page) {
 //   });
 // }
 
+  void showChangeLangDialog({contextBloc}) {
+    showDialog<void>(
+      context: contextBloc,
+
+      barrierDismissible: false,
+      // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: ColorsApp.boomSheetColor,
+          insetPadding: EdgeInsets.symmetric(horizontal: 30.w),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+          title: Text(
+            "تغيير اللغة".tr(),
+            style: TextStyles.textStyleFontBold18whit
+                .copyWith(color: Colors.green),
+          ),
+          content: SizedBox(
+            width: widthScreen(context),
+            child: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                          child: Text(
+                        "هل تريد تغيير لغة التطبيق  ؟".tr(),
+                        style: TextStyles.textStyleFontBold16White,
+                        textAlign: TextAlign.center,
+                      )),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          actions: <Widget>[
+            Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    elevation: 0,
+                    backgroundColor: ColorsApp.mainColor,
+                    titleColor: Colors.white,
+                    onPressed: () async {
+                      if (AppModel.lang == AppModel.langEng) {
+                        AppModel.lang = AppModel.langAr;
+                        context.setLocale(Locale(AppModel.langAr));
+                        SessionManager().setData(ApiConstants.langKey,AppModel.langAr);
+                        pop(contextBloc);
+                        context.navigateToNamed(Routes.splashScreen);
+                      } else {
+                        AppModel.lang = AppModel.langEng;
+                        context.setLocale( Locale(AppModel.langEng));
+                         SessionManager().setData(ApiConstants.langKey, AppModel.langEng);
+                        pop(contextBloc);
+                       context.navigateToNamed(Routes.splashScreen);
+                      }
+                    },
+                    title: "نعم".tr(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: CustomButton(
+                    elevation: 0,
+                    backgroundColor: Colors.white,
+                    titleColor: Colors.red,
+                    onPressed: () async {
+                      pop(context);
+                    },
+                    title: "الغاء".tr(),
+                  ),
+                ),
+              ],
+            )
+          ],
+        );
+      },
+    );
+  }
+
+
+
 Future showDialogDeleteData({context, onConfiem, value}) {
   return showDialog(
     context: context,
@@ -74,10 +165,10 @@ Future showDialogDeleteData({context, onConfiem, value}) {
         ),
         content: SizedBox(
           width: context.width,
-      
           child: Text(
             value,
-            style: TextStyles.textStyleFontBold16White.copyWith(color: Colors.red),
+            style:
+                TextStyles.textStyleFontBold16White.copyWith(color: Colors.red),
             textAlign: TextAlign.center,
           ),
         ),
@@ -453,6 +544,16 @@ SizedBox sizedWidth(double width) => SizedBox(
 bool isLogin() {
   return currentUser != null;
 }
+
+isArabic() {
+  return AppModel.lang == AppModel.langAr;
+}
+
+isStudennt() {
+  return currentUser!.user.role== AppModel.studentRole;
+}
+
+
 
 //
 // showTopMessage({context, customBar}) {

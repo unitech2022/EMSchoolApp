@@ -1,4 +1,5 @@
 import 'package:em_school/core/enums/loading_status.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/features/common/models/course_model.dart';
 import 'package:em_school/features/student/bloc/subject_cubit/subject_cubit.dart';
@@ -70,10 +71,13 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                             collapsedIconColor: Colors.white,
                             title:state
                                 .subjectDetailsResponse!.courses.isEmpty?const SizedBox(): Text(
-                              currentCourse == null
+                              isArabic()?currentCourse == null
                                   ? state
                                       .subjectDetailsResponse!.courses[0].nameAr
-                                  : currentCourse!.nameAr,
+                                  : currentCourse!.nameAr:currentCourse == null
+                                  ? state
+                                      .subjectDetailsResponse!.courses[0].nameEng
+                                  : currentCourse!.nameEng,
                               style: TextStyles.textStyleFontBold22White,
                             ),
                             shape: RoundedRectangleBorder(
@@ -94,7 +98,7 @@ class _SubjectDetailsScreenState extends State<SubjectDetailsScreen> {
                                         });
                                       },
                                       title: Text(
-                                        e.nameAr,
+                                       isArabic()? e.nameAr:e.nameEng,
                                         style: TextStyles
                                             .textStyleFontMeduim20White,
                                       ),

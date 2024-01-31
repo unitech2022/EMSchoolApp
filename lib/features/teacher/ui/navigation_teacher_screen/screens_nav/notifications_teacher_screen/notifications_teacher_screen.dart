@@ -1,3 +1,4 @@
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/core/theming/colors.dart';
 import 'package:em_school/features/common/models/alert_model.dart';
 import 'package:em_school/features/teacher/bloc/teacher_cubit/teacher_cubit.dart';
@@ -64,7 +65,7 @@ class NotificationsTeacherScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(alert.titleAr,style: TextStyles.textStyleFontSemiBold23White,),
+                            Text(isArabic()?alert.titleAr:alert.titleEng,style: TextStyles.textStyleFontSemiBold23White,),
                             verticalSpace(10.h),
                             Text(alert.descriptionAr
                               ,maxLines: 2

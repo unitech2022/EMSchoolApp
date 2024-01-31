@@ -69,8 +69,10 @@ class _LessonsScreenState extends State<LessonsScreen> {
                   title: state.homeTeacherResponse!.courses.isEmpty
                       ? const SizedBox()
                       : Text(
-                          state.homeTeacherResponse!
-                              .courses[currentIndexCourse!].nameAr,
+                         isArabic()? state.homeTeacherResponse!
+                              .courses[currentIndexCourse!].nameAr:
+                               state.homeTeacherResponse!
+                              .courses[currentIndexCourse!].nameEng,
                           style: TextStyles.textStyleFontBold22White,
                         ),
                   shape: RoundedRectangleBorder(
@@ -95,7 +97,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                           });
                         },
                         title: Text(
-                          e.nameAr,
+                         isArabic()? e.nameAr: e.nameEng,
                           style: TextStyles.textStyleFontMeduim20White,
                         ),
 

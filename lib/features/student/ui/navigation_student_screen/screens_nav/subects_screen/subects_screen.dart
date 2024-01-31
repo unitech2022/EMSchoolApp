@@ -1,4 +1,5 @@
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/features/common/models/subject_model.dart';
 import 'package:em_school/features/student/bloc/student_cubit/student_cubit.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,7 @@ class SubjectsScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    subjectModel.nameAr,
+                                    isArabic()?subjectModel.nameAr:subjectModel.nameEng,
                                     style: TextStyles.textStyleFontBold16White,
                                   ),
                                    PercentWidget(

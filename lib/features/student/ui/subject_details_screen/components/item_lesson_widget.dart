@@ -1,6 +1,5 @@
 import 'package:em_school/core/extensions/extensions_routing.dart';
 import 'package:em_school/core/helpers/helper_functions.dart';
-import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/theming/styles.dart';
 import 'package:em_school/features/student/bloc/lesson_cubit/lesson_cubit.dart';
 import 'package:em_school/features/student/ui/lesson_details_screen/lesson_details_screen.dart';
@@ -80,10 +79,10 @@ class ItemLessonWidget extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(e.nameAr,
+                                      Text(isArabic()?e.nameAr:e.nameEng,
                                           style: TextStyles
                                               .textStyleFontMeduim20White),
-                                      RowEditorWidget(
+                                     isStudennt()?const SizedBox():   RowEditorWidget(
                                         onUpdate: () {
                                           context.navigatePush(AddLessonScreen(
                                               courses: state

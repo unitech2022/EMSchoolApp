@@ -138,7 +138,7 @@ class _OTPScreenState extends State<OTPScreen> {
                             //   code: code,
                             //   phone: widget.phone,
                             // ));
-                            showToast(msg: "الرقم غير مسجل",color: Colors.red);
+                            showToast(msg: "الرقم غير مسجل".tr(),color: Colors.red);
                           } else {
                             AuthCubit.get(context).loginUser(
                                 context: context,

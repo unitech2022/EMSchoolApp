@@ -2,6 +2,7 @@ import 'dart:convert';
 
 
 import 'package:em_school/core/helpers/helper_functions.dart';
+import 'package:em_school/core/utlis/api_constatns.dart';
 import 'package:em_school/core/utlis/app_model.dart';
 import 'package:em_school/features/common/auth/ui/screens/select_type_account_screen/select_type_account_screen.dart';
 import 'package:flutter/foundation.dart';
@@ -23,8 +24,9 @@ class SessionManager {
     if (data != null) {
       Map<String, dynamic> json = jsonDecode(pref.getString('userData')!);
       currentUser = UserResponse.fromJson(json);
+        AppModel.lang=pref.getString(ApiConstants.langKey)??"";
       if (kDebugMode) {
-        print(currentUser!.user.id);
+        print(AppModel.lang);
       }
     }
 

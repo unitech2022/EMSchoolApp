@@ -7,37 +7,37 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 class TextStyles {
-  static TextStyle textStyleFontExtraBold27 = TextStyle(
+  static TextStyle textStyleFontExtraBold27 = GoogleFonts.rubik(
     fontSize: 27.sp,
-    fontFamily: AppFonts.innerExtraBold,
+   
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle textStyleFontMedium27grey = TextStyle(
+  static TextStyle textStyleFontMedium27grey = GoogleFonts.rubik(
     fontSize: 20.sp,
-    fontFamily: AppFonts.innerMedium,
+   fontWeight: FontWeightHelper.medium,
     color: Colors.grey,
   );
 
-  static TextStyle textStyleFontExtraBold29 = TextStyle(
+  static TextStyle textStyleFontExtraBold29 = GoogleFonts.rubik(
     fontSize: 29.sp,
-    fontFamily: AppFonts.innerExtraBold,
+  
     color: Colors.white,
-    fontWeight: FontWeight.bold,
+    fontWeight:  FontWeightHelper.extraBold,
   );
 
-  static TextStyle textStyleFontExtraBold24White = TextStyle(
+  static TextStyle textStyleFontExtraBold24White = GoogleFonts.rubik(
     color: Colors.white,
     fontSize: 24.sp,
-    fontFamily: AppFonts.innerExtraBold,
+    fontWeight:  FontWeightHelper.extraBold,
     height: 0,
   );
 
-  static TextStyle textStyleFontExtraBold12White = TextStyle(
+  static TextStyle textStyleFontExtraBold12White = GoogleFonts.rubik(
     color: Colors.white.withOpacity(0.8199999928474426),
     fontSize: 12.sp,
-    fontFamily: AppFonts.innerExtraBold,
+    fontWeight:  FontWeightHelper.extraBold,
     height: 0,
   );
 
@@ -64,11 +64,10 @@ class TextStyles {
     height: 1,
   );
 
-  static TextStyle textStyleFontBold18Blue = TextStyle(
+  static TextStyle textStyleFontBold18Blue =  GoogleFonts.rubik(
     color: ColorsApp.mainColor,
     fontSize: 18.sp,
-    fontFamily: AppFonts.innerExtraBold,
-    fontWeight: FontWeight.w700,
+  fontWeight:  FontWeightHelper.extraBold,
     height: 1,
   );
 
@@ -216,6 +215,13 @@ class TextStyles {
     height: 0,
   );
 
+  
+ static TextStyle textStyleFontRegular14White = GoogleFonts.rubik(
+    color:Colors.white,
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.regular,
+   height: 0,
+  );
   
   static TextStyle textStyleFontMeduim19White = GoogleFonts.rubik(
     color:Colors.white,

@@ -85,7 +85,9 @@ class _QuizScreenState extends State<QuizScreen> {
                           color: const Color(0xff6C1EEA),
                           borderRadius: BorderRadius.circular(35.r)),
                       child: Text(
-                        widget.lessonDetailsResponse.lesson.nameAr,
+                        isArabic()?
+                        widget.lessonDetailsResponse.lesson.nameAr:
+                        widget.lessonDetailsResponse.lesson.nameEng,
                         style: TextStyles.textStyleFontBold22White,
                       )),
                 ],
@@ -106,7 +108,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       child: PageView(
                     controller: controller,
                     onPageChanged: (index) {
-                      print(index);
+                    
                       if (index + 1 ==
                           widget.lessonDetailsResponse.quizes.length) {
                         isEndPage = true;
@@ -145,7 +147,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
                     color: ColorsApp.boomSheetColor),
-                child: Text(e.quiz.descAr,
+                child: Text(isArabic()?e.quiz.descAr:e.quiz.descEng,
                     style: TextStyles.textStyleFontExteraBold22White),
               ),
               verticalSpace(20.h),
@@ -182,7 +184,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(e.textAr,
+                                Text(isArabic()?e.textAr:e.textEng,
                                     style: TextStyles
                                         .textStyleFontExteraBold22White),
                                 idSelected == 0
@@ -253,7 +255,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 ),
               ),
               verticalSpace(10.h),
-              Text(e.quiz.descAr,
+              Text(isArabic()?e.quiz.descAr:e.quiz.descEng,
                   style: TextStyles.textStyleFontExteraBold22White),
               verticalSpace(30.h),
 
@@ -289,7 +291,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(e.textAr,
+                                Text(isArabic()?e.textAr:e.textEng,
                                     style: TextStyles
                                         .textStyleFontExteraBold22White),
                                 idSelected == 0
@@ -378,7 +380,7 @@ class _ResultAndQuizesWidgetState extends State<ResultAndQuizesWidget> {
             style: TextStyles.textStyleFontExteraBold22White),
         Row(
           children: [
-            Text("النتيجة : ",
+            Text("النتيجة : ".tr(),
                 style: TextStyles.textStyleFontExteraBold22White),
             Text(widget.result.toString(),
                 style: TextStyles.textStyleFontExteraBold22White),

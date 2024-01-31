@@ -1,4 +1,5 @@
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,7 +52,7 @@ class SubjectsListWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          e.nameAr,
+                          isArabic()?e.nameAr:e.nameEng,
                           style: TextStyles.textStyleFontBold14White,
                         ),
                          PercentWidget(

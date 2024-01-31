@@ -1,5 +1,112 @@
 {
   "English": "English",
-  "العربية": "العربية",
-  "عررغ نفسك": "عرف نفسك"
+  "العربية":"Arabic",
+  "عررغ نفسك":"Arrgh yourself",
+  "طالب": "Student",
+  "مدرس": "Teacher",
+  "ولي آمر": "Parents",
+  "أدخل بياناتك" : "Enter your data",
+  "رقم الهاتف":"Phone number",
+  "دخول": "Log in",
+  "آدخل رقم الهاتف": "Enter phone number",
+  "آدخل الرقم السري":"Enter the password",
+  "الرقم السري": "Password",
+  "آدخل الكود المرسل الي رقمك": "Enter the code sent to your number",
+  "الكود غير صحيح": "The code is invalid",
+  "الرقم غير مسجل":"The number is not registered",
+  "انشاء حساب جديد": "Create a new account",
+  "الرجاء ادخال البيانات الخاصة بك":  "Please enter your data",
+  "الاسم": "Name",
+  "نوع التعليم": "Type of education",
+  "المرحلة التعليمية": "Educational stage",
+  "الصف الدراسي": "Classroom",
+  "انشاء": "Create",
+  "الدخول بالرقم السري": "Login with the password",
+  "كلمة السر":  "Password",
+  "اكتب الاسم": "Write name",
+  "اختار نوع التعليم": "Select the type of education",
+  "اختار المرحلة التعليمية": "Select the educational stage",
+  "اختار الصف الدراسي": "Select the class",
+  "عرف نفسك":"Introduce yourself",
+  "يجب ان يكون ٨ احرف و يحتوي علي احزف كبيرة و رموز": "It must be 8 letters and contain large letters and symbols",
+  "اختار التخصص": "Select your specialty",
+  "التخصص": "Specialization",
+  "الدروس": "Lessons",
+  "الطلاب": "Students",
+  "الرئيسية": "Home",
+  "الاشعارات": "Notys",
+  "عن التطبيق": "About",
+  "الذهاب الي الاختبار": "Go to the Test",
+  "التعليقات":  "Comments",
+  "اضافة سؤال": "Add a question",
+  "اكتب سؤالك": "Write your question",
+  "لا يمكن ارسال سؤال فاررغ": "An empty message cannot be sent",
+  "تم ارسال السؤال": "Question has been sent",
+  "اسآل":"Ask",
+  "قيم":"Rate",
+  "حفظ":"Save",
+  "ارسال":"Send",
+  "لا يمكن ارسال سؤال فارغ":"An empty question cannot be sent"
+,"اترك تقييما":"Leave a review"
+,"قائمة الاسئلة":"Questions"
+,"اضافة رد":"Reply",
+"رد واحد":"One reply",
+"ردان":"ردان",
+"ردود":"ردود",
+"اكتب ردك":"Write your Reply",
+"اختبار":"test",
+"النتيجة : ":"Result: ",
+"اختار اجابة":"Choose an answer",
+"شوف النتيجة":"See the result",
+"السؤال التالي":"Next question",
+"تغيير اللغة":"Change language",
+"تسجيل الخروج":"Log out",
+"هل تريد تغيير لغة التطبيق  ؟":"Do you want to change the language of the application?"
+
+,"نعم":"Yes",
+"الغاء":"Cancel",
+"استكشف":"Discover",
+"الفعاليات":"Events",
+"الترفيه":"Entertainment",
+"المواد":"Subjects",
+"الجداول":"Schedules",
+"اعد الاختبار":"Re-test"
+,"إنهاء":"Finish"
+,"اضافة درس جديد":"Add a new lesson"
+,"تعديل الدرس":"Update Lesson"
+,"اسم الكورس":"Course Name"
+,"اسم الوحده":"Unit name",
+" اسم الدرس باللغة العربية":"Lesson name in Arabic"
+," اسم الدرس باللغة الانجليزية":"Lesson name in English"
+,"شرح الدرس باللغة العربية":"Desc of the lesson in Arabic",
+"شرح الدرس باللغة بالانجليزية":"Desc of the lesson in English"
+,"لينك الفيديو":"Video Link",
+"اضافة صورة الدرس":"Add a lesson picture",
+"تم اضافة الصورة":"Image added",
+"اضافة":"add",
+
+"تعديل":"Edit",
+"اختار الكورس":"Choose the course",
+"اختار الوحدة":"Choose the unit",
+"اكتب الاسم باللغة العربية":"Write the name in Arabic",
+"اكتب الاسم باللغة الانجليزية": "Write the name in English",
+"اكتب شرح الدرس باللغة العربية":"Write an Desc of the lesson in Arabic",
+"اكتب شرح الدرس باللغة الانجليزية": "Write an explanation of the lesson in English",
+"اكتب لينك الفيديو":"Write the video link",
+"اختار صورة الدرس":"Choose the lesson picture",
+"اضافة سؤال جديد":"Add a new question"
+," السؤال باللغة العربية":"Question in Arabic"
+
+," السؤال باللغة الانجليزية":"Question in English"
+,"اضافة صورة":"Add a photo",
+"اضافة اجابة":"Add an answer",
+"الاجابة بالعربية": "Answer in Arabic",
+"الاجابة بالانجليزية": "Answer in English",
+"الصحيحة":"Correct",
+"اكتب السؤال باللغة العربية":"Write the question in Arabic",
+"اكتب السؤال باللغة الانجليزية":"Write the question in English"
+,"اضافة وحدة":"Add a unit",
+"تعديل وحدة":"Edit unit"
+, " اسم الوحدة باللغة الانجليزية":"Unit name in English",
+" اسم الوحدة باللغة العربية": "Unit name in Arabic"
 }

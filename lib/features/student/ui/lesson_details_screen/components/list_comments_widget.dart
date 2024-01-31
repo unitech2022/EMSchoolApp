@@ -212,7 +212,7 @@ class _ListCommentsWidgetState extends State<ListCommentsWidget> {
       case 2:
         return "ردان";
       default:
-        return "$count ردود ";
+        return "$count ${"ردود".tr()}" ;
     }
   }
 

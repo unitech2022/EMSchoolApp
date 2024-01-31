@@ -35,9 +35,9 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
   final _nameEngQuizController = TextEditingController();
 
   List<AnswerForAdd> answers = [];
-  List<TextEditingController> _controllersAr = [];
+  final List<TextEditingController> _controllersAr = [];
 
-  List<TextEditingController> _controllersEng = [];
+  final List<TextEditingController> _controllersEng = [];
   int correctId = 0;
 
   @override
@@ -60,7 +60,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          "اضافة سؤال جديد",
+          "اضافة سؤال جديد".tr(),
           style: TextStyles.textStyleFontBold15whit,
         ),
       ),
@@ -76,7 +76,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                 TextFormFieldWidget(
                   isObscureText: false,
                   controller: _nameArQuiznController,
-                  hintText: " السؤال باللغة العربية",
+                  hintText: " السؤال باللغة العربية".tr(),
                   validator: (val) {},
                 ),
 
@@ -84,7 +84,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                 verticalSpace(30.h),
                 TextFormFieldWidget(
                   isObscureText: false,
-                  hintText: " السؤال باللغة الانجليزية",
+                  hintText: " السؤال باللغة الانجليزية".tr(),
                   validator: (val) {},
                   controller: _nameEngQuizController,
                 ),
@@ -99,7 +99,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                   child: CheckboxListTile(
                     checkColor: Colors.white,
                     title: Text(
-                      "اضافة صورة",
+                      "اضافة صورة".tr(),
                       style: TextStyles.textStyleFontMeduim19White,
                     ),
                     value: isImage,
@@ -173,7 +173,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                     ),
                     horizontalSpace(20.w),
                     Text(
-                      "اضافة اجابة",
+                      "اضافة اجابة".tr(),
                       style: TextStyles.textStyleFontMeduim19White,
                     )
                   ]),
@@ -190,7 +190,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                               children: [
                                 Expanded(
                                   child: TextFormFieldWidget(
-                                    hintText: "الاجابة بالعربية",
+                                    hintText: "الاجابة بالعربية".tr(),
                                     validator: (val) {},
                                     isObscureText: false,
                                     controller: _controllersAr[index],
@@ -201,7 +201,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                                 ),
                                 Expanded(
                                   child: TextFormFieldWidget(
-                                    hintText: "الاجابة الانجليية",
+                                    hintText: "الاجابة بالانجليزية".tr(),
                                     isObscureText: false,
                                     validator: (val) {},
                                     controller: _controllersEng[index],
@@ -219,7 +219,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        "الصحيحة",
+                                        "الصحيحة".tr(),
                                         style:
                                             TextStyles.textStyleFontBold18whit,
                                       ),
@@ -248,7 +248,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                 state.addLessonState == RequestState.loading
                     ? const CircularProgressIndicator()
                     : CustomButton(
-                        title: "اضافة",
+                        title: "اضافة".tr(),
                         onPressed: () async {
                           answers = [];
                           for (var i = 0; i < _controllersAr.length; i++) {
@@ -297,13 +297,13 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
 
   bool isValidate(BuildContext context, {imaLesson}) {
     if (_nameArQuiznController.text.isEmpty) {
-      showToast(msg: "اكتب السؤال باللغة العربية");
+      showToast(msg: "اكتب السؤال باللغة العربية".tr());
       return false;
     } else if (_nameEngQuizController.text.isEmpty) {
-      showToast(msg: "اكتب السؤال باللغة الانجليزية");
+      showToast(msg: "اكتب السؤال باللغة الانجليزية".tr());
       return false;
     } else if (isImage && imaLesson == null) {
-      showToast(msg: "اختار صورة الدرس");
+      showToast(msg: "اختار صورة الدرس".tr());
       return false;
     } else {
       return true;

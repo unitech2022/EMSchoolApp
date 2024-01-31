@@ -49,14 +49,14 @@ class _AddCommentsRatsWidgetState extends State<AddCommentsRatsWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ContainerCommentAndRate(
-          title: "اسآل",
+          title: "اسآل".tr(),
           icon: Icons.mode_comment_outlined,
           onTap: () {
             addComent(context);
           },
         ),
         ContainerCommentAndRate(
-          title: "قيم",
+          title: "قيم".tr(),
           icon: Icons.star_border,
           onTap: () {
             //
@@ -66,7 +66,7 @@ class _AddCommentsRatsWidgetState extends State<AddCommentsRatsWidget> {
         BlocBuilder<FavoriteCubit, FavoriteState>(
           builder: (context, state) {
             return ContainerCommentAndRate(
-              title: "حفظ",
+              title: "حفظ".tr(),
               icon: favFound.containsKey(widget.lessonModel.id)
                   ? Icons.bookmark
                   : Icons.bookmark_border,
@@ -264,7 +264,7 @@ class _AddCommentsRatsWidgetState extends State<AddCommentsRatsWidget> {
                                   pop(context);
                                 });
                               },
-                              title: 'ارسال'.tr(),
+                              title: "ارسال".tr(),
                             ),
                       SizedBox(
                         height: 30.h,

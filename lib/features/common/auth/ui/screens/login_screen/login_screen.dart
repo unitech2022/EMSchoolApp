@@ -81,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                       horizontalSpace(20),
                       Expanded(child: TextFormFieldWidget(
                         controller: AuthCubit.get(context).phoneController,
-                        hintText: "وقم الهاتف".tr(), validator: (value){
+                        hintText: "رقم الهاتف".tr(), validator: (value){
 
                       },isObscureText:false,
                         textInputType: TextInputType.number,
@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
 
               AppTextButton(buttonText: "دخول".tr(), textStyle: TextStyles.textStyleFontExtraBold24White, onPressed: (){
                 if(AuthCubit.get(context).phoneController.text.isEmpty){
-showToast(msg: "آدخل رقم الهاتف",color: Colors.red);
+showToast(msg: "آدخل رقم الهاتف".tr(),color: Colors.red);
                 }else{
                   AuthCubit.get(context).checkUserName(context: context
                       ,phone:"+20${AuthCubit.get(context).phoneController.text}",

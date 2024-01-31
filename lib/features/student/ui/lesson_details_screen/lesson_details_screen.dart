@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:em_school/core/enums/loading_status.dart';
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/theming/styles.dart';
 import 'package:em_school/core/utlis/app_model.dart';
@@ -8,12 +9,12 @@ import 'package:em_school/core/widgets/rating_bar_widget.dart';
 import 'package:em_school/features/student/bloc/lesson_cubit/lesson_cubit.dart';
 import 'package:em_school/features/student/ui/lesson_details_screen/components/add_quiz_widget.dart';
 import 'package:em_school/features/student/ui/quiz_screen/quiz_screen.dart';
+import 'package:em_school/features/teacher/ui/quiz_by_lesson_screen/quiz_by_lesson_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -79,22 +80,24 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
                                 children: [
                                   IconButton(
                                     icon: Icon(
-                                     state.isLike!
+                                      state.isLike
                                           ? FontAwesomeIcons.solidThumbsUp
                                           : FontAwesomeIcons.thumbsUp,
                                       color: ColorsApp.mainColor,
                                     ),
-                                    onPressed: ()async {
-                                     await LessonCubit.get(context).addLikeLesson(
-                                          context: context,
-                                          lessonId: state.lessonDetailsResponse!
-                                              .lesson.id);
+                                    onPressed: () async {
+                                      await LessonCubit.get(context)
+                                          .addLikeLesson(
+                                              context: context,
+                                              lessonId: state
+                                                  .lessonDetailsResponse!
+                                                  .lesson
+                                                  .id);
                                     },
                                   ),
                                   horizontalSpace(5.w),
                                   Text(
-                                      LessonCubit.get(context).likes
-                                        .toString(),
+                                    LessonCubit.get(context).likes.toString(),
                                     style: TextStyles.textStyleFontBold15whit,
                                   )
                                 ],
@@ -140,13 +143,17 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
                               Row(
                                 children: [
                                   Text(
-                                    state.lessonDetailsResponse!.lesson.nameAr,
+                                    isArabic()?state.lessonDetailsResponse!.lesson.nameAr:
+                                    state.lessonDetailsResponse!.lesson.nameEng,
                                     style: TextStyles.textStyleFontBold21whit,
                                   ),
                                 ],
                               ),
                               Text(
-                                state.lessonDetailsResponse!.lesson.descAr,
+                                isArabic()?
+                                state.lessonDetailsResponse!.lesson.descAr:
+                                state.lessonDetailsResponse!.lesson.descEng
+                                ,
                                 style: TextStyles.textStyleFontMeduim21grey,
                               ),
                               verticalSpace(15.h),
@@ -173,6 +180,9 @@ class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
                                             ));
                                           } else {
                                             //todo : page quizez
+                                            context.navigatePush(
+                                                QuizByLessonScreen(lessonId:state
+                                                      .lessonDetailsResponse!.lesson.id));
                                           }
                                         },
                                         backgroundColor: Colors.green,

@@ -1,8 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:em_school/core/enums/loading_status.dart';
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
+
 import 'package:em_school/core/theming/colors.dart';
+
 import 'package:em_school/core/utlis/session_manager.dart';
+
 import 'package:em_school/features/student/bloc/student_cubit/student_cubit.dart';
 import 'package:em_school/features/student/ui/navigation_student_screen/screens_nav/home_screen_student/home_screen_student.dart';
 import 'package:em_school/features/student/ui/navigation_student_screen/screens_nav/notifications_student_screen/notifications_student_screen.dart';
@@ -142,7 +146,7 @@ class DrawerWidget extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: context.height/3,
+            height: context.height / 3,
             width: double.infinity,
             child: Image.asset(
               "assets/images/app_icon.png",
@@ -152,27 +156,57 @@ class DrawerWidget extends StatelessWidget {
             ),
           ),
           verticalSpace(30.h),
-          MaterialButton(
-            height: 60.h,
-            onPressed: ()async {
+          ItemDrawerWidget(
+            onTap: () async {
+              showChangeLangDialog(contextBloc: context);
+            },
+            title: "تغيير اللغة".tr(),
+            icon: Icons.translate,
+          ),
+          ItemDrawerWidget(
+            onTap: () async {
               await SessionManager().singOut(context: context);
             },
-            child: Row(
-              children: [
-                const Icon(
-                  Icons.logout,
-                  color: Colors.white,
-                ),
-                horizontalSpace(20.w),
-                Text(
-                  "تسجيل الخروج".tr(),
-                  style: TextStyles.textStyleFontBold20White,
-                )
-              ],
-            ),
+            title: "تسجيل الخروج".tr(),
+            icon: Icons.logout,
           )
         ],
       ),
     ));
+  }
+
+
+}
+
+class ItemDrawerWidget extends StatelessWidget {
+  final void Function() onTap;
+  final String title;
+  final IconData icon;
+  const ItemDrawerWidget({
+    super.key,
+    required this.onTap,
+    required this.title,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      height: 60.h,
+      onPressed: onTap,
+      child: Row(
+        children: [
+          Icon(
+            icon,
+            color: Colors.white,
+          ),
+          horizontalSpace(20.w),
+          Text(
+            title,
+            style: TextStyles.textStyleFontBold20White,
+          )
+        ],
+      ),
+    );
   }
 }

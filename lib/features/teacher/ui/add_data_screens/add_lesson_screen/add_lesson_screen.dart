@@ -84,7 +84,9 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          "اضافة درس جديد",
+         widget.lessonModel==null?
+          "اضافة درس جديد".tr()
+          :"تعديل الدرس".tr(),
           style: TextStyles.textStyleFontBold15whit,
         ),
       ),
@@ -142,7 +144,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                 TextFormFieldWidget(
                   isObscureText: false,
                   controller: _nameArLessonController,
-                  hintText: " اسم الدرس باللغة العربية",
+                  hintText: " اسم الدرس باللغة العربية".tr(),
                   validator: (val) {},
                 ),
 
@@ -150,7 +152,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                 verticalSpace(30.h),
                 TextFormFieldWidget(
                   isObscureText: false,
-                  hintText: " اسم الدرس باللغة الانجليزية",
+                  hintText: " اسم الدرس باللغة الانجليزية".tr(),
                   validator: (val) {},
                   controller: _nameEngLessonController,
                 ),
@@ -159,7 +161,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                 TextFormFieldAreaWidget(
                   isObscureText: false,
                   textInputType: TextInputType.multiline,
-                  hintText: "شرح الدرس باللغة العربية",
+                  hintText: "شرح الدرس باللغة العربية".tr(),
                   validator: (val) {},
                   controller: _descArLessonController,
                 ),
@@ -167,7 +169,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                 TextFormFieldAreaWidget(
                   textInputType: TextInputType.multiline,
                   isObscureText: false,
-                  hintText: "شرح الدرس باللغة بالانجليزية",
+                  hintText: "شرح الدرس باللغة بالانجليزية".tr(),
                   validator: (val) {},
                   controller: _descEngLessonController,
                 ),
@@ -177,7 +179,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                 TextFormFieldAreaWidget(
                   textInputType: TextInputType.multiline,
                   isObscureText: false,
-                  hintText: "لينك الفيديو",
+                  hintText: "لينك الفيديو".tr(),
                   validator: (val) {},
                   controller: _linkLessonController,
                 ),
@@ -226,7 +228,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                 state.addLessonState == RequestState.loading
                     ? const CustomCircularProgress()
                     : CustomButton(
-                        title:widget.lessonModel==null? "اضافة":"تعديل",
+                        title:widget.lessonModel==null? "اضافة".tr():"تعديل".tr(),
                         onPressed: () async {
                           if (isValidateCourse(context,
                               imaLesson: state.imageLesson)) {
@@ -269,28 +271,28 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
 
   bool isValidateCourse(BuildContext context, {imaLesson}) {
     if (TeacherCubit.get(context).courseModel == null) {
-      showToast(msg: "اختار الكورس");
+      showToast(msg: "اختار الكورس".tr());
       return false;
     } else if (TeacherCubit.get(context).unitModel == null) {
-      showToast(msg: "اختار الوحدة");
+      showToast(msg: "اختار الوحدة".tr());
       return false;
     } else if (_nameArLessonController.text.isEmpty) {
-      showToast(msg: "اكتب الاسم باللغة العربية");
+      showToast(msg: "اكتب الاسم باللغة العربية".tr());
       return false;
     } else if (_nameEngLessonController.text.isEmpty) {
-      showToast(msg: "اكتب الاسم باللغة الانجليزية");
+      showToast(msg: "اكتب الاسم باللغة الانجليزية".tr());
       return false;
     } else if (_descArLessonController.text.isEmpty) {
-      showToast(msg: "اكتب شرح الدرس باللغة العربية");
+      showToast(msg: "اكتب شرح الدرس باللغة العربية".tr());
       return false;
     } else if (_descEngLessonController.text.isEmpty) {
-      showToast(msg: "اكتب شرح الدرس باللغة الانجليزية");
+      showToast(msg: "اكتب شرح الدرس باللغة الانجليزية".tr());
       return false;
     } else if (_linkLessonController.text.isEmpty) {
-      showToast(msg: "اكتب لينك الفيديو");
+      showToast(msg: "اكتب لينك الفيديو".tr());
       return false;
     } else if (imaLesson == null) {
-      showToast(msg: "اختار صورة الدرس");
+      showToast(msg: "اختار صورة الدرس".tr());
       return false;
     } else {
       return true;
@@ -331,7 +333,7 @@ class _AddLessonScreenState extends State<AddLessonScreen> {
                           child: Row(
                             children: [
                               Texts(
-                                  title: model.nameAr,
+                                  title: isArabic()?model.nameAr:model.nameEng,
                                   textColor: Colors.white,
                                   family: AppFonts.innerMedium,
                                   size: 20.sp),

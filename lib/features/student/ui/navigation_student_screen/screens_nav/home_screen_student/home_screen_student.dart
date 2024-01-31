@@ -29,19 +29,21 @@ class HomeScreenStudent extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text(screensItemsStudent[state.currentNavIndex].name,textAlign: TextAlign.start,style:TextStyles.textStyleFontLight25White ,),
+                  Text(
+                    screensItemsStudent[state.currentNavIndex]
+                    .name,textAlign: TextAlign.start,style:TextStyles.textStyleFontLight25White ,),
                   verticalSpace(15.h),
-                  const TextTitle(title: "استكشف",),
+                   TextTitle(title: "استكشف".tr(),),
                   verticalSpace(10.h),
                   /// SUBJECTS
                   SubjectsListWidget(subjects:state.homeResponse!.subjects)
                   ,verticalSpace(24.h),
-                  const TextTitle(title: "الفعاليات",),
+                   TextTitle(title: "الفعاليات".tr(),),
                   verticalSpace(15.h),
                   /// sliders
                   CarouselWidget(bunners: state.homeResponse!.bunners,),
                 verticalSpace(24.h),
-            const TextTitle(title: "الترفيه",),
+             TextTitle(title: "الترفيه".tr(),),
             verticalSpace(15.h),
                   Container(
                     height: 120.h,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:em_school/core/extensions/extensions_routing.dart';
 import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/theming/colors.dart';
@@ -60,7 +61,7 @@ class _ResultScreenState extends State<ResultScreen> {
                   Expanded(
                     child: CustomButton(
                       radius: BorderRadius.circular(30.r),
-                      title: "اعد الاختبار",
+                      title: "اعد الاختبار".tr(),
                       fontSize: 22.sp,
                       height: 63.h,
                       onPressed: () {
@@ -80,7 +81,7 @@ class _ResultScreenState extends State<ResultScreen> {
                   Expanded(
                     child: CustomButton(
                       radius: BorderRadius.circular(30.r),
-                      title: "إنهاء",
+                      title: "إنهاء".tr(),
                       fontSize: 22.sp,
                       height: 63.h,
                       onPressed: () {

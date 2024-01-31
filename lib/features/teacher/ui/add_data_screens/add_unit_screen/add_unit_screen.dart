@@ -6,7 +6,6 @@ import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/layout/app_fonts.dart';
 import 'package:em_school/core/theming/colors.dart';
 import 'package:em_school/core/theming/styles.dart';
-import 'package:em_school/core/widgets/circular_progress.dart';
 import 'package:em_school/core/widgets/custom_button.dart';
 import 'package:em_school/core/widgets/text_field_widget.dart';
 import 'package:em_school/core/widgets/texts.dart';
@@ -55,7 +54,7 @@ class _AddUnitScreenState extends State<AddUnitScreen> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          "اضافة وحدة",
+          widget.unitModel==null?"اضافة وحدة".tr():"تعديل وحدة".tr(),
           style: TextStyles.textStyleFontBold15whit,
         ),
       ),
@@ -86,13 +85,13 @@ class _AddUnitScreenState extends State<AddUnitScreen> {
                 TextFormFieldWidget(
                   isObscureText: false,
                   controller: _nameArUnitController,
-                  hintText: " اسم الوحدة باللغة العربية",
+                  hintText: " اسم الوحدة باللغة العربية".tr(),
                   validator: (val) {},
                 ),
                 verticalSpace(30.h),
                 TextFormFieldWidget(
                   isObscureText: false,
-                  hintText: " اسم الوحدة باللغة الانجليزية",
+                  hintText: " اسم الوحدة باللغة الانجليزية".tr(),
                   validator: (val) {},
                   controller: _nameEngUnitController,
                 ),
@@ -100,7 +99,7 @@ class _AddUnitScreenState extends State<AddUnitScreen> {
                 state.addCourseState == RequestState.loading
                     ? const CircularProgressIndicator()
                     : CustomButton(
-                        title: widget.unitModel != null ? "تعديل" : "اضافة",
+                        title: widget.unitModel != null ? "تعديل".tr() : "اضافة".tr(),
                         onPressed: () {
                           if (isValidateCourse(context)) {
                             if (widget.unitModel != null) {
@@ -158,13 +157,13 @@ class _AddUnitScreenState extends State<AddUnitScreen> {
 
   bool isValidateCourse(BuildContext context) {
     if (TeacherCubit.get(context).courseModel == null) {
-      showToast(msg: "اختار الكورس");
+      showToast(msg: "اختار الكورس".tr());
       return false;
     } else if (_nameArUnitController.text.isEmpty) {
-      showToast(msg: "اكتب الاسم باللغة العربية");
+      showToast(msg: "اكتب الاسم باللغة العربية".tr());
       return false;
     } else if (_nameEngUnitController.text.isEmpty) {
-      showToast(msg: "اكتب الاسم باللغة الانجليزية");
+      showToast(msg: "اكتب الاسم باللغة الانجليزية".tr());
       return false;
     } else {
       return true;

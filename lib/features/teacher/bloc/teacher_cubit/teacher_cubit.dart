@@ -12,7 +12,7 @@ import 'package:em_school/features/common/models/subject_model.dart';
 import 'package:em_school/features/common/models/unit_model.dart';
 import 'package:em_school/features/teacher/ui/navigation_teacher_screen/navigation_teacher_screen.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -321,6 +321,42 @@ class TeacherCubit extends Cubit<TeacherState> {
   getImageLesson(String image) {
     emit(state.copyWith(imageLesson: image));
   }
+
+
+// getQuieszBByLessonId
+Future getQuizesByLessonId({context,lessonId})async{
+ emit(state.copyWith(
+      getQuizesByLessonState: RequestState.loading,
+    ));
+    var dio = Dio();
+    final params = <String, dynamic>{
+      'lessonId': lessonId,
+    };
+    var response = await dio.get(
+      '${ApiConstants.baseUrl}/quiz/get-Quizs-bylesson?',
+      queryParameters: params,
+      options: Options(
+        followRedirects: false,
+        // will not throw errors
+        validateStatus: (status) => true,
+      ),
+    );
+
+    debugPrint("${response.statusCode} ===== get-Quizs-bylesson");
+    if (response.statusCode == 200) {
+
+
+
+      emit(state.copyWith(
+        quizes: List<QuizModel>.from((response.data as List).map((e) => QuizModel.fromJson(e))),
+        getQuizesByLessonState: RequestState.loaded,
+      ));
+    } else {
+      emit(state.copyWith(
+        getQuizesByLessonState: RequestState.error,
+      ));
+    }
+}
 
 // add quiz
   Future addQuiz(List<AnswerForAdd> answers,

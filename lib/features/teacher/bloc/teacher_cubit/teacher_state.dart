@@ -8,13 +8,18 @@ class TeacherState extends Equatable {
   final RequestState? changeDataState;
   final RequestState? addLessonState;
   final RequestState? imageLessonState;
+  final RequestState? getQuizesByLessonState;
+  final List<QuizModel> quizes;
   final String? imageLesson;
 
   const TeacherState(
       {this.imageLessonState,
-      this.imageLesson, this.addLessonState,
+      this.imageLesson,
+      this.addLessonState,
       this.changeDataState,
       this.addCourseState,
+      this.getQuizesByLessonState,
+      this.quizes = const [],
       this.currentNavIndex = 0,
       this.homeTeacherResponse,
       this.getHomeTeacherState = RequestState.loading});
@@ -25,20 +30,23 @@ class TeacherState extends Equatable {
           final HomeTeacherResponse? homeTeacherResponse,
           final RequestState? addCourseState,
           final RequestState? changeDataState,
-            final RequestState? imageLessonState,
-             final RequestState? addLessonState,
-  final String? imageLesson
-          
-          }) =>
+          final RequestState? imageLessonState,
+          final RequestState? addLessonState,
+          final RequestState? getQuizesByLessonState,
+          final List<QuizModel>? quizes,
+          final String? imageLesson}) =>
       TeacherState(
           currentNavIndex: currentNavIndex ?? this.currentNavIndex,
           getHomeTeacherState: getHomeTeacherState ?? this.getHomeTeacherState,
           homeTeacherResponse: homeTeacherResponse ?? this.homeTeacherResponse,
           addCourseState: addCourseState ?? this.addCourseState,
           changeDataState: changeDataState ?? this.changeDataState,
-               imageLessonState: imageLessonState ?? this.imageLessonState,
+          imageLessonState: imageLessonState ?? this.imageLessonState,
           imageLesson: imageLesson ?? this.imageLesson,
-           addLessonState: addLessonState ?? this.addLessonState
+          addLessonState: addLessonState ?? this.addLessonState,
+
+               getQuizesByLessonState: getQuizesByLessonState ?? this.getQuizesByLessonState,
+          quizes: quizes ?? this.quizes
           
           );
 
@@ -50,6 +58,10 @@ class TeacherState extends Equatable {
         getHomeTeacherState,
         addCourseState,
         changeDataState,
-        imageLesson,imageLessonState,addLessonState
+        imageLesson,
+        imageLessonState,
+        addLessonState,
+        getQuizesByLessonState,
+        quizes
       ];
 }

@@ -61,11 +61,11 @@ class LessonsListWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        model.unitModel.nameAr,
+                       isArabic()? model.unitModel.nameAr: model.unitModel.nameEng,
                         style: TextStyles.textStyleFontBold22White,
                       ),
                       horizontalSpace(20.w),
-                      RowEditorWidget(
+               isStudennt()?const SizedBox():     RowEditorWidget(
                         onUpdate: () {
                           context.navigatePush(AddUnitScreen(
                             courses: state.homeTeacherResponse!.courses,
@@ -75,7 +75,7 @@ class LessonsListWidget extends StatelessWidget {
                         onDelete: () {
                               showDialogDeleteData(
                                 context: context,
-                                value: model.unitModel.nameAr,
+                                value: isArabic()?model.unitModel.nameAr:model.unitModel.nameEng,
                                 onConfiem: () {
                                   pop(context);
                                     TeacherCubit.get(context).deleteUnite(

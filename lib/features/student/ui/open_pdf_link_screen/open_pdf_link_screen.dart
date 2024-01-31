@@ -1,3 +1,4 @@
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
@@ -57,7 +58,7 @@ class _OpenPdfFileScreenState extends State<OpenPdfFileScreen> {
     return Scaffold(
       appBar: AppBar(
         title:  Text(
-          widget.model.nameAr,
+         isArabic()? widget.model.nameAr: widget.model.nameEng,
           style: TextStyles.textStyleFontBold20White,
         ),
       ),

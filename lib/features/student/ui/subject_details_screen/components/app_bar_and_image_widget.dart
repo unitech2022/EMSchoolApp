@@ -1,4 +1,5 @@
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/theming/styles.dart';
@@ -30,7 +31,7 @@ class AppBarAndImageWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                subjectModel.nameAr,
+                isArabic()?subjectModel.nameAr:subjectModel.nameEng,
                 style: TextStyles.textStyleFontBold22White,
               ),
                PercentWidget(

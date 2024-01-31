@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:em_school/core/extensions/extensions_routing.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/theming/styles.dart';
 import 'package:em_school/features/common/models/schedule_model.dart';
@@ -43,7 +44,9 @@ class _TablesScreenState extends State<TablesScreen> {
                         Container(
                           alignment: Alignment.center,
                           width: context.width/6.3 ,
-                          child: Text(scheduleModel.schedule.nameAr,style: TextStyles.textStyleFontRegular17White,
+                          child: Text(isArabic()?scheduleModel.schedule.nameAr:
+                            scheduleModel.schedule.nameEng
+                          ,style: TextStyles.textStyleFontRegular14White,
                         )),
                         verticalSpace(20.h)
                         ,Column(
@@ -61,7 +64,7 @@ class _TablesScreenState extends State<TablesScreen> {
                                     color: listColors[_random.nextInt(6)],
                                     borderRadius: BorderRadius.circular(5.r)
                                   ),
-                                    child: Text(e.nameAr,style: TextStyles.textStyleFontRegular17White,
+                                    child: Text(isArabic()?e.nameAr:e.nameEng,style: TextStyles.textStyleFontRegular17White,
                                     ),
                                   ))).toList(),
                         )

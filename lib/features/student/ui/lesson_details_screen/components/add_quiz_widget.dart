@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:em_school/core/extensions/extensions_routing.dart';
 import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/theming/colors.dart';
@@ -35,7 +36,7 @@ class AddQuizWidget extends StatelessWidget {
             ),
             horizontalSpace(15.w),
             Text(
-              "اضافة سؤال",
+              "اضافة سؤال".tr(),
               style: TextStyles.textStyleFontBold20White,
             )
           ],

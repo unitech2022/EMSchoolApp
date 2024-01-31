@@ -20,8 +20,9 @@ class AppModel {
   static String teacherRole = "teacher";
   static String token = "";
   static String lang = "";
+
   static String langAr = "ar";
-  static String langEng = "eng";
+  static String langEng = "en";
   static String privacy = "";
   static String deviceToken = "";
   static String apiKey = "AIzaSyBrAmfsbAiQ8MIPDAu4fmmdoa4acj9vGdg";

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:em_school/core/helpers/helper_functions.dart';
 import 'package:em_school/core/helpers/spacing.dart';
 import 'package:em_school/core/theming/colors.dart';
 import 'package:em_school/core/theming/styles.dart';
@@ -32,16 +34,16 @@ class HomeTeacherScreen extends StatelessWidget {
                 ),
                 verticalSpace(25.h),
                 // lessons
-                const TextTitle(
-                  title: "الدروس",
+                 TextTitle(
+                  title: "الدروس".tr(),
                 ),
                 verticalSpace(15.h),
                 LessonsListWidget(list: state.homeTeacherResponse!.lessons),
                 verticalSpace(35.h),
                 // students
 
-                const TextTitle(
-                  title: "الطلاب",
+                 TextTitle(
+                  title: "الطلاب".tr(),
                 ),
                 verticalSpace(15.h),
                 StudentsListWidget(list: state.homeTeacherResponse!.students)
@@ -152,7 +154,7 @@ class LessonsListWidget extends StatelessWidget {
               horizontalSpace(10.w),
               Expanded(
                 child: Text(
-                  lesson.lesson.nameAr,
+                  isArabic()?lesson.lesson.nameAr:lesson.lesson.nameEng,
                   style: TextStyles.textStyleFontRegular16White
                       .copyWith(overflow: TextOverflow.ellipsis),
                 ),
